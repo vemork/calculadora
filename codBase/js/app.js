@@ -1,17 +1,25 @@
 function reducir(event){
-	console.log(event);
+	// console.log(event);
+	event.style.padding = "1%";
+	this.pantalla(event);
 }
 
-// document.getElementById("on").addEventListener("onmousedown", function(event){
-//     console.log("wow");
-// });
-document.addEventListener("mousedown", function(event){
-	event.path[0].style.height = "15%";
-	console.log(event);
-});
+function aumentar(event){
+	// console.log(event);
+	event.style.padding = "0px";
+}
 
-document.addEventListener("mouseup", function(event){
-	event.path[0].style.height = "62.91px";
-	// event.path[0].firstElementChild.style.height = "62.91px";
-	// console.log(event.path[0].firstElementChild);
-});
+function pantalla(e){
+	var display = document.getElementById("display");
+
+	if ( e.id == "on" ){
+		display.innerHTML  = "0";
+	}else{
+		if ( display.innerHTML == 0 ){
+			display.innerHTML = e.id;
+		}else{
+			display.innerHTML = display.innerHTML + e.id;
+		}	
+	}
+	
+}
